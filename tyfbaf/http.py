@@ -5,7 +5,7 @@ import httpx
 SERVER_NAME = None
 PORT = 6405
 BASE_HEADERS = {"Content-Type": "application/json", "Accept": "application/json"}
-PROXIES = {"http": None, "https": None}
+PROXIES = {"http://": None, "https://": None}
 
 
 def _setup(server_name: str, port: int = 6405) -> None:
