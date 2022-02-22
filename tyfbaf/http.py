@@ -1,6 +1,6 @@
 from tkinter.messagebox import NO
 from typing import Any
-import requests
+import httpx
 
 SERVER_NAME = None
 PORT = 6405
@@ -15,7 +15,7 @@ def _setup(server_name: str, port: int = 6405) -> None:
 
 
 def post(endpoint: str, *, body=None, token=None) -> dict[str, Any]:
-    response = requests.post(
+    response = httpx.post(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
         proxies=PROXIES,
         headers=(
