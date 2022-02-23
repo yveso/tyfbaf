@@ -4,7 +4,6 @@ import httpx
 SERVER_NAME = None
 PORT = 6405
 BASE_HEADERS = {"Content-Type": "application/json", "Accept": "application/json"}
-PROXIES = {"http://": None, "https://": None}
 
 
 def _setup(server_name: str, port: int = 6405) -> None:
@@ -16,7 +15,6 @@ def _setup(server_name: str, port: int = 6405) -> None:
 def get(endpoint: str, *, token: str = None) -> dict[str, Any]:
     response = httpx.get(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
-        proxies=PROXIES,
         headers=(
             {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
         ),
@@ -27,7 +25,6 @@ def get(endpoint: str, *, token: str = None) -> dict[str, Any]:
 def post(endpoint: str, *, body: dict = None, token: str = None) -> dict[str, Any]:
     response = httpx.post(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
-        proxies=PROXIES,
         headers=(
             {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
         ),
