@@ -1,6 +1,6 @@
 # tyfbaf
 
-![Version](hhttps://img.shields.io/pypi/v/tyfbaf)
+![Version](https://img.shields.io/pypi/v/tyfbaf)
 ![License](https://img.shields.io/pypi/l/tyfbaf)
 ![Downloads](https://img.shields.io/pypi/dd/tyfbaf)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
@@ -38,7 +38,7 @@ my-server-name:6400@{3&2=5595,U3&p=40674.9596541551,Y7&4F=12,U3&63=secEnterprise
 
 ## Changelog
 
-[See here](CHANGELOG.md).
+[See here](https://github.com/yveso/tyfbaf/blob/main/CHANGELOG.md).
 
 ## License
 
