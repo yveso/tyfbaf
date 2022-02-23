@@ -38,11 +38,11 @@ my-server-name:6400@{3&2=5595,U3&p=40674.9596541551,Y7&4F=12,U3&63=secEnterprise
 
 ## Changelog
 
-[See here](https://github.com/yveso/tyfbaf/blob/main/CHANGELOG.md).
+See [CHANGELOG.md](https://github.com/yveso/tyfbaf/blob/main/CHANGELOG.md) for more information.
 
 ## License
 
-Distributed under the MIT License. See LICENSE for more information.
+Distributed under the MIT License. See [LICENSE](https://github.com/yveso/tyfbaf/blob/main/LICENSE) for more information.
 
 ## Copyright
 
