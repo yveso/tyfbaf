@@ -11,6 +11,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - more functions
 
+### Fixed
+
+- Version Badge in README.md 😂
+
 ## [0.0.5] - 2022-02-23
 
 ### Added
