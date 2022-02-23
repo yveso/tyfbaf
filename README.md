@@ -1,6 +1,7 @@
 # tyfbaf
 
-![License: MIT](https://img.shields.io/pypi/l/tyfbaf)
+![Version](hhttps://img.shields.io/pypi/v/tyfbaf)
+![License](https://img.shields.io/pypi/l/tyfbaf)
 ![Downloads](https://img.shields.io/pypi/dd/tyfbaf)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
@@ -34,6 +35,10 @@ For common cases, **tyfbaf** gives you predefined functions, too. So for example
 >>> tyfbaf.token.request("my-username", "my-password123")
 my-server-name:6400@{3&2=5595,U3&p=40674.9596541551,Y7&4F=12,U3&63=secEnterprise,0P&66=60,03&68=secEnterprise:my-username,0P&qe=100,U3&vz=SFY6agrLPxpfQBK1ZKYCahEZKCbfsQm7VgWZFiH.RhM,UP
 ```
+
+## Changelog
+
+[See here](CHANGELOG.md).
 
 ## License
 
