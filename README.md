@@ -1,6 +1,10 @@
 # tyfbaf
 
-**tyfbaf** is a Python package designed for making using the _[SAP® BusinessObjects™ RESTful Web Service SDK](https://help.sap.com/viewer/58f583a7643e48cf944cf554eb961f5b/4.2/en-US)_ easier.
+![License: MIT](https://img.shields.io/pypi/l/tyfbaf)
+![Downloads](https://img.shields.io/pypi/dd/tyfbaf)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
+**tyfbaf** is a Python package designed for bringing (even) more joy when using the _[SAP® BusinessObjects™ RESTful Web Service SDK](https://help.sap.com/viewer/58f583a7643e48cf944cf554eb961f5b/4.2/en-US)_.
 
 ## Install
 
@@ -19,7 +23,7 @@ Then **tyfbaf** gives you a get and a post function in the http module. Those fu
 
 ```python
 >>> import tyfbaf.http
->>> tyfbaf.http.get("/logon/long)
+>>> tyfbaf.http.get("/logon/long")
 {'password': '', 'clientType': '', 'auth': 'secEnterprise', 'userName': ''}
 ```
 
