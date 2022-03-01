@@ -7,13 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.6] - 2022-03-01
+
 ### Added
 
-- more functions
+- Modules
+  - `cmsquery`: Makes querying the CMS easier.
+  - `cmsquery_utils`: Helps you writing an actual query statement.
 
 ### Fixed
 
 - Version Badge in README.md 😂
+- Minor fixes
 
 ## [0.0.5] - 2022-02-23
 
