@@ -35,3 +35,17 @@ def post(
         timeout=None,
     )
     return response.json() if response.text else {}
+
+
+def post_full_uri(
+    uri: str, *, body: Optional[dict] = None, token: Optional[str] = None
+) -> dict[str, Any]:
+    response = httpx.post(
+        uri,
+        headers=(
+            {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
+        ),
+        json=body,
+        timeout=None,
+    )
+    return response.json() if response.text else {}
