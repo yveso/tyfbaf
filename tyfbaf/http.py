@@ -1,4 +1,4 @@
-from typing import Any
+from typing import Any, Optional
 import httpx
 
 SERVER_NAME = None
@@ -12,7 +12,7 @@ def _setup(server_name: str, port: int = 6405) -> None:
     PORT = port
 
 
-def get(endpoint: str, *, token: str = None) -> dict[str, Any]:
+def get(endpoint: str, *, token: Optional[str] = None) -> dict[str, Any]:
     response = httpx.get(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
         headers=(
@@ -23,7 +23,9 @@ def get(endpoint: str, *, token: str = None) -> dict[str, Any]:
     return response.json() if response.text else {}
 
 
-def post(endpoint: str, *, body: dict = None, token: str = None) -> dict[str, Any]:
+def post(
+    endpoint: str, *, body: Optional[dict] = None, token: Optional[str] = None
+) -> dict[str, Any]:
     response = httpx.post(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
         headers=(
