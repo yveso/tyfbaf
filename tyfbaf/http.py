@@ -18,6 +18,7 @@ def get(endpoint: str, *, token: str = None) -> dict[str, Any]:
         headers=(
             {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
         ),
+        timeout=None,
     )
     return response.json() if response.text else {}
 
@@ -29,5 +30,6 @@ def post(endpoint: str, *, body: dict = None, token: str = None) -> dict[str, An
             {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
         ),
         json=body,
+        timeout=None,
     )
     return response.json() if response.text else {}
