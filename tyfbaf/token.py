@@ -7,8 +7,6 @@ def request(username: str, password: str) -> Optional[str]:
         "/logon/long",
         body={"userName": username, "password": password, "auth": "secEnterprise"},
     )
-    print(response)
-
     if "logonToken" in response:
         return response.get("logonToken")
     elif response.get("error_code", "") == "FWB 00008":
