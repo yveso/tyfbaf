@@ -1,14 +1,39 @@
-from typing import Any, Callable, Optional
+from typing import Any, Callable, List, Optional
 from .http import post, post_full_uri
 
 
-def select(query: str, token: str):
+def select(query: str, token: str) -> dict[str, Any]:
+    """Get the _raw_ response from a CMS query, just like you would get
+    from every other HTTP client.
+
+    Args:
+        query (str): The query.
+        token (str): Your token.
+
+    Returns:
+        dict[str, Any]: The _raw_ response.
+    """
     return post("/v1/cmsquery", body={"query": query}, token=token)
 
 
 def select_all_entries(
     query: str, token: str, mapping: Optional[Callable[[Any], Any]] = None
-):
+) -> List[Any]:
+    """Get _all_ results from a CMS query.
+    This function will automatically loop through all paginated results and stitch them toghether.
+    You can also declare a mapping for your results.
+
+    Args:
+        query (str): The query.
+        token (str): Your token.
+        mapping (Optional[Callable[[Any], Any]], optional): A mapping function for the results. Defaults to None.
+
+    Raises:
+        ValueError: Your query produced an error.
+
+    Returns:
+        List[Any]: _All_ results of the query.
+    """
     response = select(query=query, token=token)
 
     if "error_code" in response.keys():

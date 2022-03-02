@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Docstrings 📖
+
+### Fixed
+
+- Minor fixes
+
 ## [0.0.6] - 2022-03-01
 
 ### Added
