@@ -1,6 +1,6 @@
 from __future__ import annotations
 from enum import Enum
-from typing import List
+from typing import List, Union
 
 
 class CmsQueryBuilder:
@@ -16,12 +16,12 @@ class CmsQueryBuilder:
         self.fields = []
         self.constraints = []
 
-    def select(self, fields: List[str]) -> CmsQueryBuilder:
+    def select(self, fields: List[Union[str, SI]]) -> CmsQueryBuilder:
         """Define the set of desired fields in your query.
         '*' will be used, if no fields are defined.
 
         Args:
-            fields (List[str]): The fields.
+            fields (List[Union[str, SI]]): The fields. You can pass strings or use the SI enum (or even mix them).
 
         Returns:
             CmsQueryBuilder: The object itself, so you can chain the function calls. 😎
@@ -50,7 +50,12 @@ class CmsQueryBuilder:
         the_query = " ".join(
             [
                 "SELECT",
-                ", ".join(self.fields) if self.fields else "*",
+                ", ".join(
+                    field if isinstance(field, str) else field.value
+                    for field in self.fields
+                )
+                if self.fields
+                else "*",
                 "FROM",
                 self.table_name,
             ]
@@ -98,3 +103,14 @@ class CmsQueryBuilderUtils:
             str: The snippet. For example 'SI_SCHEDULE_STATUS = 3'.
         """
         return f"SI_SCHEDULE_STATUS = {status.value}"
+
+
+class SI(Enum):
+    """Enum for the CMS query field.
+    You can get autocompletion. 😎"""
+
+    ID = "SI_ID"
+    KIND = "SI_KIND"
+    NAME = "SI_NAME"
+    PARENT_ID = "SI_PARENTID"
+    SCHEDULE_INFO = "SI_SCHEDULEINFO"
