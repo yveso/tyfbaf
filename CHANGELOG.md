@@ -7,9 +7,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.7] - 2022-03-15
+
 ### Added
 
 - Docstrings 📖
+- `token` module
+  - New functions `request_and_save` and `invalidate_saved_token`.
+  - You can now save a token, so you don't need to pass it with every request.
+  - The functions in the `http` module will use the saved token automatically.
+- `cmsquery_utils` module
+  - `SI` enum for CMS query fields, so you get autocompletion in your editor. 😎
 
 ### Fixed
 

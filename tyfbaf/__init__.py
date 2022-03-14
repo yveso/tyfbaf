@@ -3,7 +3,7 @@ tyfbaf
 """
 from .http import _setup
 
-__version__ = "0.0.6"
+__version__ = "0.0.7"
 
 
 def setup(server_name: str, *, port: int = 6405):
