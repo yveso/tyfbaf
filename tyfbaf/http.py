@@ -1,5 +1,6 @@
 from typing import Any, Optional
 import httpx
+from .token import CURRENT_TOKEN
 
 SERVER_NAME = None
 PORT = 6405
@@ -31,7 +32,9 @@ def get(endpoint: str, *, token: Optional[str] = None) -> dict[str, Any]:
     response = httpx.get(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
         headers=(
-            {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
+            {"X-SAP-LogonToken": token or CURRENT_TOKEN, **BASE_HEADERS}
+            if (token or CURRENT_TOKEN)
+            else BASE_HEADERS
         ),
         timeout=None,
     )
@@ -54,7 +57,9 @@ def post(
     response = httpx.post(
         f"http://{SERVER_NAME}:{PORT}/biprws{endpoint}",
         headers=(
-            {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
+            {"X-SAP-LogonToken": token or CURRENT_TOKEN, **BASE_HEADERS}
+            if (token or CURRENT_TOKEN)
+            else BASE_HEADERS
         ),
         json=body,
         timeout=None,
@@ -79,7 +84,9 @@ def post_full_uri(
     response = httpx.post(
         uri,
         headers=(
-            {"X-SAP-LogonToken": token, **BASE_HEADERS} if token else BASE_HEADERS
+            {"X-SAP-LogonToken": token or CURRENT_TOKEN, **BASE_HEADERS}
+            if (token or CURRENT_TOKEN)
+            else BASE_HEADERS
         ),
         json=body,
         timeout=None,

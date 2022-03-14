@@ -1,8 +1,10 @@
 from typing import Optional
 from .http import post
 
+CURRENT_TOKEN = ""
 
-def request(username: str, password: str) -> Optional[str]:
+
+def request(username: str, password: str) -> str:
     """Request a new token.
 
     Args:
@@ -20,9 +22,22 @@ def request(username: str, password: str) -> Optional[str]:
         body={"userName": username, "password": password, "auth": "secEnterprise"},
     )
     if "logonToken" in response:
-        return response.get("logonToken")
+        return str(response.get("logonToken"))
     elif response.get("error_code", "") == "FWB 00008":
         raise ValueError(response.get("message"))
+    else:
+        return ""
+
+
+def request_and_save(username: str, password: str) -> None:
+    """Request a new token and save it, so it will be automatically used.
+
+    Args:
+        username (str): Your username.
+        password (str): Your password.
+    """
+    global CURRENT_TOKEN
+    CURRENT_TOKEN = request(username=username, password=password)
 
 
 def invalidate(token: str) -> None:
@@ -38,3 +53,11 @@ def invalidate(token: str) -> None:
 
     if response.get("error_code", "") == "FWM 02024":
         raise ValueError(response.get("message"))
+
+
+def invalidate_saved_token() -> None:
+    """Invalidates a saved token."""
+    global CURRENT_TOKEN
+    if CURRENT_TOKEN:
+        invalidate(token=CURRENT_TOKEN)
+    CURRENT_TOKEN = ""
