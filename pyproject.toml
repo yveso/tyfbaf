@@ -22,7 +22,8 @@ dev = [
     "black"
 ]
 test = [
-    "pytest"
+    "pytest",
+    "respx"
 ]
 
 [tool.flit.sdist]
