@@ -1,4 +1,3 @@
-from typing import Optional
 from . import globals
 from .http import post
 
@@ -14,7 +13,7 @@ def request(username: str, password: str) -> str:
         ValueError: When your credentials couldn't be verified.
 
     Returns:
-        Optional[str]: Your new token. 😎
+        str: Your new token. 😎
     """
     response = post(
         "/logon/long",
