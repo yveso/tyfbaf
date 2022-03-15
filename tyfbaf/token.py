@@ -1,7 +1,6 @@
 from typing import Optional
+from . import globals
 from .http import post
-
-CURRENT_TOKEN = ""
 
 
 def request(username: str, password: str) -> str:
@@ -36,8 +35,7 @@ def request_and_save(username: str, password: str) -> None:
         username (str): Your username.
         password (str): Your password.
     """
-    global CURRENT_TOKEN
-    CURRENT_TOKEN = request(username=username, password=password)
+    globals.CURRENT_TOKEN = request(username=username, password=password)
 
 
 def invalidate(token: str) -> None:
@@ -57,7 +55,6 @@ def invalidate(token: str) -> None:
 
 def invalidate_saved_token() -> None:
     """Invalidates a saved token."""
-    global CURRENT_TOKEN
-    if CURRENT_TOKEN:
-        invalidate(token=CURRENT_TOKEN)
-    CURRENT_TOKEN = ""
+    if globals.CURRENT_TOKEN:
+        invalidate(token=globals.CURRENT_TOKEN)
+    globals.CURRENT_TOKEN = ""
