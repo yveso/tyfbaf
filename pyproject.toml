@@ -21,6 +21,11 @@ Home = "https://github.com/yveso/tyfbaf"
 dev = [
     "black"
 ]
+test = [
+    "pytest",
+    "pytest-cov",
+    "respx"
+]
 
 [tool.flit.sdist]
 exclude = [".vscode/"]

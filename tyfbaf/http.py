@@ -1,17 +1,6 @@
 from typing import Any, Optional
 import httpx
-from . import globals
-
-
-def _setup(server_name: str, port: int = 6405) -> None:
-    """Private function to setup tyfbaf. You should use the public one from the tyfbaf module.
-
-    Args:
-        server_name (str): Just your server name, without any protocol or port.
-        port (int, optional): The port in use of your server. Defaults to 6405.
-    """
-    globals.SERVER_NAME = server_name
-    globals.PORT = port
+from . import constants
 
 
 def get(endpoint: str, *, token: Optional[str] = None) -> dict[str, Any]:
@@ -25,11 +14,14 @@ def get(endpoint: str, *, token: Optional[str] = None) -> dict[str, Any]:
         dict[str, Any]: The response of the HTTP get request.
     """
     response = httpx.get(
-        f"http://{globals.SERVER_NAME}:{globals.PORT}/biprws{endpoint}",
+        f"http://{constants.SERVER_NAME}:{constants.PORT}/biprws{endpoint}",
         headers=(
-            {"X-SAP-LogonToken": token or globals.CURRENT_TOKEN, **globals.BASE_HEADERS}
-            if (token or globals.CURRENT_TOKEN)
-            else globals.BASE_HEADERS
+            {
+                "X-SAP-LogonToken": token or constants.CURRENT_TOKEN,
+                **constants.BASE_HEADERS,
+            }
+            if (token or constants.CURRENT_TOKEN)
+            else constants.BASE_HEADERS
         ),
         timeout=None,
     )
@@ -50,11 +42,14 @@ def post(
         dict[str, Any]: The response of the HTTP post request.
     """
     response = httpx.post(
-        f"http://{globals.SERVER_NAME}:{globals.PORT}/biprws{endpoint}",
+        f"http://{constants.SERVER_NAME}:{constants.PORT}/biprws{endpoint}",
         headers=(
-            {"X-SAP-LogonToken": token or globals.CURRENT_TOKEN, **globals.BASE_HEADERS}
-            if (token or globals.CURRENT_TOKEN)
-            else globals.BASE_HEADERS
+            {
+                "X-SAP-LogonToken": token or constants.CURRENT_TOKEN,
+                **constants.BASE_HEADERS,
+            }
+            if (token or constants.CURRENT_TOKEN)
+            else constants.BASE_HEADERS
         ),
         json=body,
         timeout=None,
@@ -79,9 +74,12 @@ def post_full_uri(
     response = httpx.post(
         uri,
         headers=(
-            {"X-SAP-LogonToken": token or globals.CURRENT_TOKEN, **globals.BASE_HEADERS}
-            if (token or globals.CURRENT_TOKEN)
-            else globals.BASE_HEADERS
+            {
+                "X-SAP-LogonToken": token or constants.CURRENT_TOKEN,
+                **constants.BASE_HEADERS,
+            }
+            if (token or constants.CURRENT_TOKEN)
+            else constants.BASE_HEADERS
         ),
         json=body,
         timeout=None,
