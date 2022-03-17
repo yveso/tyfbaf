@@ -23,6 +23,7 @@ dev = [
 ]
 test = [
     "pytest",
+    "pytest-cov",
     "respx"
 ]
 

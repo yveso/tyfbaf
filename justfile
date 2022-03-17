@@ -18,3 +18,6 @@ publish-test:
 # run pytest
 test:
     pytest
+# run pytest with coverage
+test-coverage:
+    pytest --cov=tyfbaf
