@@ -29,3 +29,6 @@ test = [
 
 [tool.flit.sdist]
 exclude = [".vscode/"]
+
+[tool.isort]
+profile = "black"

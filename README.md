@@ -4,6 +4,7 @@
 ![License](https://img.shields.io/pypi/l/tyfbaf)
 ![Downloads](https://img.shields.io/pypi/dd/tyfbaf)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Imports: isort](https://img.shields.io/badge/%20imports-isort-%231674b1?style=flat&labelColor=ef8336)](https://pycqa.github.io/isort/)
 
 **tyfbaf** is a Python package designed for bringing (even) more joy when using the _[SAP® BusinessObjects™ RESTful Web Service SDK](https://help.sap.com/viewer/58f583a7643e48cf944cf554eb961f5b/4.2/en-US)_.
 

@@ -1,4 +1,5 @@
 import pytest
+
 from tyfbaf.cmsquery_utils import (
     SI,
     CmsQueryBuilder,
