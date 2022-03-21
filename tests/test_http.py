@@ -5,18 +5,12 @@ from tyfbaf import constants, http
 
 
 def test_get_expected_uri_gets_called(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.get("http://server_name:6405/biprws/an_endpoint")
     _ = http.get("/an_endpoint")
     assert route.called
 
 
 def test_get_base_headers_are_set(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.get(
         headers={
             "Content-Type": "application/json",
@@ -28,9 +22,6 @@ def test_get_base_headers_are_set(respx_mock):
 
 
 def test_get_token_if_passed_is_used(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.get(
         headers={
             "X-SAP-LogonToken": "a_token",
@@ -41,9 +32,6 @@ def test_get_token_if_passed_is_used(respx_mock):
 
 
 def test_get_token_if_saved_is_used(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     constants.CURRENT_TOKEN = "saved_token"
     route = respx.get(
         headers={
@@ -55,36 +43,24 @@ def test_get_token_if_saved_is_used(respx_mock):
 
 
 def test_get_returns_empty_dict_if_response_was_empty(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     _ = respx.get().mock(return_value=httpx.Response(200, text=""))
     response = http.get("/an_endpoint")
     assert response == {}
 
 
 def test_get_returns_expected_object(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     _ = respx.get().mock(return_value=httpx.Response(200, json={"key": "value"}))
     response = http.get("/an_endpoint")
     assert response == {"key": "value"}
 
 
 def test_post_expected_uri_gets_called(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.post("http://server_name:6405/biprws/an_endpoint")
     _ = http.post("/an_endpoint")
     assert route.called
 
 
 def test_post_base_headers_are_set(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.post(
         headers={
             "Content-Type": "application/json",
@@ -96,9 +72,6 @@ def test_post_base_headers_are_set(respx_mock):
 
 
 def test_post_token_if_passed_is_used(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.post(
         headers={
             "X-SAP-LogonToken": "a_token",
@@ -109,9 +82,6 @@ def test_post_token_if_passed_is_used(respx_mock):
 
 
 def test_post_token_if_saved_is_used(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     constants.CURRENT_TOKEN = "saved_token"
     route = respx.post(
         headers={
@@ -123,9 +93,6 @@ def test_post_token_if_saved_is_used(respx_mock):
 
 
 def test_post_body_if_passed_is_used(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     route = respx.post(
         json={
             "key": "value",
@@ -136,18 +103,12 @@ def test_post_body_if_passed_is_used(respx_mock):
 
 
 def test_post_returns_empty_dict_if_response_was_empty(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     _ = respx.post().mock(return_value=httpx.Response(200, text=""))
     response = http.post("/an_endpoint")
     assert response == {}
 
 
 def test_post_returns_expected_object(respx_mock):
-<<<<<<< Updated upstream
-=======
->>>>>>> Stashed changes
     _ = respx.post().mock(return_value=httpx.Response(200, json={"key": "value"}))
     response = http.post("/an_endpoint")
     assert response == {"key": "value"}
