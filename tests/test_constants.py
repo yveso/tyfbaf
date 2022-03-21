@@ -1,7 +1,21 @@
+<<<<<<< Updated upstream
 from tyfbaf import constants
 
 
 def test_server_name_default():
+=======
+import pytest
+from tyfbaf import constants
+
+
+@pytest.fixture
+def ugly_hack(request):
+    """Ugly hack to disable autouse fixture in conftest.py..."""
+    constants.SERVER_NAME = ""
+
+
+def test_server_name_default(ugly_hack):
+>>>>>>> Stashed changes
     assert constants.SERVER_NAME == ""
 
 
