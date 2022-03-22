@@ -15,5 +15,6 @@
     "editor.codeActionsOnSave": {
       "source.organizeImports": true
     }
-  }
+  },
+  "cSpell.words": ["cmsquery", "isort", "tyfbaf"]
 }
