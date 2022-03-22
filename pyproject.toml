@@ -19,7 +19,9 @@ Home = "https://github.com/yveso/tyfbaf"
 
 [project.optional-dependencies]
 dev = [
-    "black"
+    "pre-commit",
+    "black",
+    "isort"
 ]
 test = [
     "pytest",

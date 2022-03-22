@@ -10,7 +10,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - Tests 😱
-- Using isort for imports
+- Using [isort](https://pycqa.github.io/isort/index.html) for imports
+- Using [pre-commit](https://pre-commit.com/)
 
 ## [0.0.8] - 2022-03-15
 
